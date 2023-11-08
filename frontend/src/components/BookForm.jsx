@@ -84,18 +84,18 @@ export default function BookForm({ bookData }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <VStack spacing={4}>
+      <VStack spacing={4} borderRadius='2xl' bgColor='#E1E1E0' padding='1rem' shadow='2xl'>
         <FormControl>
           <FormLabel>Title</FormLabel>
-          <Input name="title" required defaultValue={bookData?.title} />
+          <Input name="title" required defaultValue={bookData?.title} borderColor='black' borderWidth={2} borderRadius='xl'/>
         </FormControl>
         <FormControl>
           <FormLabel>Author</FormLabel>
-          <Input name="author" required defaultValue={bookData?.author} />
+          <Input name="author" required defaultValue={bookData?.author} borderColor='black' borderWidth={2} borderRadius='xl'/>
         </FormControl>
         <FormControl>
           <FormLabel>Publisher</FormLabel>
-          <Input name="publisher" required defaultValue={bookData?.publisher} />
+          <Input name="publisher" required defaultValue={bookData?.publisher} borderColor='black' borderWidth={2} borderRadius='xl'/>
         </FormControl>
         <FormControl>
           <FormLabel>Year</FormLabel>
@@ -104,7 +104,7 @@ export default function BookForm({ bookData }) {
             type="number"
             required
             defaultValue={bookData?.year}
-          />
+            borderColor='black' borderWidth={2} borderRadius='xl'/>
         </FormControl>
         <FormControl>
           <FormLabel>Pages</FormLabel>
@@ -113,7 +113,7 @@ export default function BookForm({ bookData }) {
             type="number"
             required
             defaultValue={bookData?.pages}
-          />
+            borderColor='black' borderWidth={2} borderRadius='xl'/>
         </FormControl>
         {selectedImage && (
           <Image w={64} src={selectedImage} alt="Selected Image" />
@@ -129,11 +129,11 @@ export default function BookForm({ bookData }) {
                 const file = e.target.files[0];
                 setSelectedImage(URL.createObjectURL(file));
               }}
-            />
+              borderColor='black' borderWidth={2} borderRadius='xl' pt='3px'/>
           </FormControl>
         )}
 
-        <Button type="submit">{bookData ? "Edit Book" : "Create Book"}</Button>
+        <Button type="submit" colorScheme='blue'>{bookData ? "Edit Book" : "Create Book"}</Button>
       </VStack>
     </form>
   );

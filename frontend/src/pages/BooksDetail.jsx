@@ -48,7 +48,7 @@ export default function BookDetails() {
   };
 
   return (
-    <Box>
+    <Box bgColor='#e1e1e0' padding={8} borderRadius='xl' shadow='xl'>
       {isLoading ? (
         <Skeleton height="300px" my="6" />
       ) : (

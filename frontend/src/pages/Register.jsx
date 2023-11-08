@@ -38,8 +38,8 @@ const Register = () => {
         isClosable: true,
       });
       navigate("/");
-    } catch (e) {
-      const error = new Error(e);
+    } catch (error) { // Catch actual registration errors
+      console.log("Registration Error:", error.message);
       toast({
         title: "An error occurred.",
         description: error?.message || "An error occurred. Please try again.",
@@ -48,16 +48,16 @@ const Register = () => {
         isClosable: true,
       });
     }
-    setError(error?.message || "An error occurred");
   };
+  
 
   return (
-    <Box w="full" py={4} px={24} mx="auto" mt={8}>
+    <Box w="65%" py={4} px={10} mx={2} mt={8} bgColor='#E1E1E0' borderRadius='xl'>
       <Text fontSize="xl" fontWeight="bold" mb={4}>
         Register
       </Text>
 
-      <Box borderWidth="1px" borderRadius="lg" p={4}>
+      <Box borderWidth="1px" borderRadius="lg" p={4} border='none'>
         <form onSubmit={handleSubmit}>
           {error && (
             <Box color="red.500" mb={4}>
@@ -67,7 +67,7 @@ const Register = () => {
 
           <FormControl isRequired>
             <FormLabel>Name</FormLabel>
-            <Input type="name" name="name" placeholder="Enter your mame" />
+            <Input type="name" name="name" placeholder="Enter your mame" borderColor='black' borderWidth={2} borderRadius='xl'/>
           </FormControl>
 
           <FormControl isRequired>
@@ -76,7 +76,7 @@ const Register = () => {
               type="email"
               name="email"
               placeholder="Enter your email address"
-            />
+              borderColor='black' borderWidth={2} borderRadius='xl'/>
           </FormControl>
 
           <FormControl isRequired mt={4}>
@@ -86,7 +86,7 @@ const Register = () => {
               placeholder="Enter a password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            />
+              borderColor='black' borderWidth={2} borderRadius='xl'/>
           </FormControl>
 
           <FormControl isRequired mt={4}>
@@ -96,7 +96,7 @@ const Register = () => {
               placeholder="Confirm your password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-            />
+              borderColor='black' borderWidth={2} borderRadius='xl'/>
             {password !== confirmPassword && (
               <Text fontSize="xs" color="red.500">
                 The password does not match

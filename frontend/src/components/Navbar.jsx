@@ -42,20 +42,26 @@ const Navbar = () => {
       justify="space-between"
       wrap="wrap"
       padding="1rem"
-      bg="teal.500"
+      bg="gray.800"
       color="white"
+      margin='0.5%'
+      width="95%"
+      borderRadius="xl"
+      position='sticky'
+      zIndex= 'sticky'
+      top= {0}
     >
       <Link to="/">
         <Flex align="center" mr={5} cursor="pointer">
           <Text fontSize="xl" fontWeight="bold">
-            My Website
+          BintangBooks
           </Text>
         </Flex>
       </Link>
       <HStack>
         {isLogin && (
           <Link to="/newbook">
-            <Button colorScheme="blackAlpha">Create New Book</Button>
+            <Button colorScheme="blue">Create New Book</Button>
           </Link>
         )}
         {!isLogin ? (
@@ -64,7 +70,7 @@ const Navbar = () => {
           </Button>
         ) : (
           <Button
-            colorScheme="blue"
+            colorScheme="red"
             onClick={() => {
               window.localStorage.removeItem("token");
               setIsLogin(false);
@@ -101,25 +107,27 @@ const Navbar = () => {
           }}
         >
           <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Login</ModalHeader>
+          <ModalContent bgColor='gray.700'>
+            <ModalHeader color='white'>Login</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
               <VStack>
                 <FormControl isRequired>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel color='white'>Email</FormLabel>
                   <Input
                     name="email"
                     type="email"
                     placeholder="Enter your email address"
+                    bgColor = 'white'
                   />
                 </FormControl>
                 <FormControl isRequired>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel color='white'>Password</FormLabel>
                   <Input
                     type="password"
                     name="password"
                     placeholder="Enter your password"
+                    bgColor = 'white'
                   />
                 </FormControl>
               </VStack>
@@ -129,7 +137,7 @@ const Navbar = () => {
                 Login
               </Button>
               <Link to="/register" onClick={onClose}>
-                <Button variant="ghost">
+                <Button  color='white' bgColor='green' _hover={{ bgColor: 'darkgreen' }}>
                   Doesn't Have Account? Click here
                 </Button>
               </Link>
